@@ -56,6 +56,9 @@ int main() {
 
   row rows[MAX_ROW];
   int row_count = read_csv(file_ptr, rows);
+
+  printf("Successfully read %d entries.\n", row_count);
+
   print_csv_rows(rows, row_count);
 
   // STAT CALCULATIONS
