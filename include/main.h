@@ -8,19 +8,6 @@
 #define MAX_STR_LEN 256
 #define MAX_ROW 1024
 
-// Struct for each row
-typedef struct {
-  charid charid1;
-  charid charid2;
-  long time;
-  int win1;
-  int win2;
-  char p1[MAX_STR_LEN];
-  char char1[MAX_STR_LEN];
-  char p2[MAX_STR_LEN];
-  char char2[MAX_STR_LEN];
-} row;
-
 // Enum for every character
 typedef enum {
   CAOKO, HAOKO, FAOKO,
@@ -53,10 +40,25 @@ typedef enum {
   CHISUI, HHISUI, FHISUI,
   CNECO, HNECO, FNECO,
   CKOHA, HKOHA, FKOHA,
-  CNECOMECH, HNECOMECH, FNECOMECH
-} charid;
+  CNECOMECH, HNECOMECH, FNECOMECH,
+  UNKNOWN
+} char_id;
+
+// Struct for each row
+typedef struct {
+  char_id char_id1;
+  char_id char_id2;
+  long time;
+  int win1;
+  int win2;
+  char p1[MAX_STR_LEN];
+  char char1[MAX_STR_LEN];
+  char p2[MAX_STR_LEN];
+  char char2[MAX_STR_LEN];
+} row;
 
 int read_csv(FILE *file, row rows[]);
+char_id assign_char_id(const char* name);
 void print_csv_rows(row rows[], int row_count);
 
 #endif
