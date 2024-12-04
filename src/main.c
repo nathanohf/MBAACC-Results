@@ -20,6 +20,7 @@ int read_csv(FILE *file, row rows[]) {
 
     assert(row_status == 7);
     row_count++;
+
   }
   return row_count;
 }
@@ -35,7 +36,7 @@ void print_csv_rows(row rows[], int row_count) {
     printf("Win 2: %d\n", rows[i].win2);
     printf("Time: %ld\n", rows[i].time);
     printf("\n");
-  }
+  }::
 }
 
 int main() {
@@ -61,7 +62,7 @@ int main() {
 
   print_csv_rows(rows, row_count);
 
-  // STAT CALCULATIONS
+  // GROUP BY CHARACTER PLAYED
 
   return 1;
 }
