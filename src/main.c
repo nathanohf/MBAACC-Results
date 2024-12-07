@@ -1,4 +1,5 @@
 #include "main.h"
+#include "stats.h"
 
 #include <assert.h>
 #include <stdio.h>
@@ -272,7 +273,7 @@ int main() {
   printf("Enter CSV file name (with .csv): ");
   scanf("%s", filename);
 
-  // FILE IO
+  /* FILE IO */
 
   file_ptr = fopen(filename, "r");
   if (file_ptr == NULL) {
@@ -289,7 +290,16 @@ int main() {
 
   print_csv_rows(rows, row_count);
 
-  // GROUP BY CHARACTER PLAYED
+  /* STATS */
+
+  for (int i = 0; i < MAX_CHARACTERS; i++) {
+    //character_stats[i].character = (char_id)i;
+    character_stats[i].total_games = 0;
+    character_stats[i].win = 0;
+    character_stats[i].loss = 0;
+  }
+
+
 
   return 1;
 }

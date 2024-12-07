@@ -2,13 +2,17 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include "stats.h"
 
 #define MAX_FILE_NAME 1024
 #define MAX_LINE_LEN 1024
 #define MAX_STR_LEN 256
 #define MAX_ROW 1024
 
-// Enum for every character
+/* total # of chars /w moon styles */
+#define MAX_CHARACTERS 93
+
+/* enum for every character */
 typedef enum {
   CAOKO, HAOKO, FAOKO,
   CTOHNO, HTOHNO, FTOHNO,
@@ -44,7 +48,12 @@ typedef enum {
   UNKNOWN
 } char_id;
 
-// Struct for each row
+/* name identifiers */
+// const char* char_names[MAX_CHARACTERS] = {"C-AOKO"
+//   // do later right now lazy
+// };
+
+/* struct for each row */
 typedef struct {
   char_id char_id1;
   char_id char_id2;
@@ -57,8 +66,11 @@ typedef struct {
   char char2[MAX_STR_LEN];
 } row;
 
+char_stat character_stats[MAX_CHARACTERS];
+
 int read_csv(FILE *file, row rows[]);
 char_id assign_char_id(const char* name);
 void print_csv_rows(row rows[], int row_count);
+void populate_char_stats(char_stat character_stats[], row rows[]);
 
 #endif
