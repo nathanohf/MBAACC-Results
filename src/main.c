@@ -299,7 +299,8 @@ int main() {
     character_stats[i].loss = 0;
   }
 
-
+  fclose(file_ptr);
+  file_ptr = NULL;
 
   return 1;
 }
